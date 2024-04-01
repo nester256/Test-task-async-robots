@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from pydantic.v1 import BaseSettings
 
 

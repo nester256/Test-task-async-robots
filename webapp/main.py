@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from webapp.api.robot_control.router import robot_router
+from webapp.integrations.logger import init_logger
 
 
 def setup_middleware(app: FastAPI) -> None:
@@ -22,5 +23,7 @@ def create_app() -> FastAPI:
     app = FastAPI(docs_url='/swagger')
     setup_middleware(app)
     setup_routers(app)
+    init_logger('API')
+    init_logger('Robot')
 
     return app
