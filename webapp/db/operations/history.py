@@ -1,5 +1,6 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
+
 from conf.config import settings
 from webapp.model.main_db.robot_history import RobotHistory
 

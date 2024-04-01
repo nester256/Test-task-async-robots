@@ -1,7 +1,7 @@
 from datetime import datetime
-from typing import List, Annotated
+from typing import Annotated, List
 
-from pydantic import BaseModel, ConfigDict, AfterValidator
+from pydantic import AfterValidator, BaseModel, ConfigDict
 
 
 class StartInfo(BaseModel):
