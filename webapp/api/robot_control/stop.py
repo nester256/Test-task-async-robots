@@ -12,7 +12,6 @@ from webapp.schema.robot import ResponseDefault, StopInfo
 
 @robot_router.post(
     '/stop',
-    response_model=ResponseDefault,
     description='Endpoint for stop robots',
     responses={
         200: {'model': ResponseDefault, 'description': 'Robot stopped successfully'},
