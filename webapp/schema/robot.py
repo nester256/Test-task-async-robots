@@ -4,25 +4,52 @@ from typing import Annotated, List
 from pydantic import AfterValidator, BaseModel, ConfigDict
 
 
+def check_positive_nums(page: int) -> int:
+    assert page > 0, 'the page number cannot be less than one'
+    return page
+
+
 class StartInfo(BaseModel):
     start_num: int = 0
+    model_config = {
+        "json_schema_extra": {
+            "examples": [
+                {
+                    "start_num": -3,
+                }
+            ]
+        }
+    }
 
 
 class StopInfo(BaseModel):
-    task_id: int
+    task_id: Annotated[int, AfterValidator(check_positive_nums)]
+    model_config = {
+        "json_schema_extra": {
+            "examples": [
+                {
+                    "task_id": 1,
+                }
+            ]
+        }
+    }
 
 
 class ResponseDefault(BaseModel):
     message: dict
 
 
-def check_page(page: int) -> int:
-    assert page > 0, 'the page number cannot be less than one'
-    return page
-
-
 class HistoryInfo(BaseModel):
-    page: Annotated[int, AfterValidator(check_page)]
+    page: Annotated[int, AfterValidator(check_positive_nums)]
+    model_config = {
+        "json_schema_extra": {
+            "examples": [
+                {
+                    "page": 1,
+                }
+            ]
+        }
+    }
 
 
 class RobotHistoryInfo(BaseModel):
