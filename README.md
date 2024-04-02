@@ -37,5 +37,3 @@ All the API endpoints provided by this project are documented using Swagger. Thi
 - Method: POST
 - URL: /robot/history
 - Description: Get a page of robot history.
-
-Please note that all request and response parameters are automatically documented in Swagger, providing a detailed description of each endpoint's inputs and outputs.
