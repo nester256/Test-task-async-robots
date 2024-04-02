@@ -13,8 +13,8 @@ from webapp.schema.robot import HistoryInfo, ResponseDefault, RobotHistoryInfo, 
     '/history',
     description='Endpoint for viewing the history of starting/stopping robots',
     responses={
-        200: {'model': RobotHistoryInfoList, 'description': 'Will return the robots work history'},
-        404: {'model': ResponseDefault, 'description': 'Robots work history not found'},
+        status.HTTP_200_OK: {'model': RobotHistoryInfoList, 'description': 'Will return the robots work history'},
+        status.HTTP_404_NOT_FOUND: {'model': ResponseDefault, 'description': 'Robots work history not found'},
     },
 )
 async def history(

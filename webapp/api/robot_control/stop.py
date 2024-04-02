@@ -7,6 +7,7 @@ from webapp.api.robot_control.robot_tasks import active_robot_tasks
 from webapp.api.robot_control.router import robot_router
 from webapp.db.operations.stop import set_stop_inf
 from webapp.db.postgres import get_session
+from webapp.integrations.logger import api_logger
 from webapp.schema.robot import ResponseDefault, StopInfo
 
 
@@ -26,6 +27,7 @@ async def stop(
         task = active_robot_tasks.pop(body.task_id)
         task.cancel()
         await set_stop_inf(session, body.task_id)
+        api_logger.info('Robot with task_id: %d stopped', body.task_id)
         return ORJSONResponse(
             {'message': f'Robot with task_id {body.task_id} stopped successfully'}, status_code=status.HTTP_200_OK
         )

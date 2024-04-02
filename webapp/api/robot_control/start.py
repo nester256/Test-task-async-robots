@@ -15,7 +15,12 @@ from webapp.integrations.logger import api_logger
 from webapp.schema.robot import ResponseDefault, StartInfo
 
 
-@robot_router.post('/start', response_model=ResponseDefault, description='Endpoint for start robots')
+@robot_router.post(
+    '/start',
+    response_model=ResponseDefault,
+    status_code=status.HTTP_200_OK,
+    description='Endpoint for start robots',
+)
 async def start(
     body: StartInfo,
     session: AsyncSession = Depends(get_session),

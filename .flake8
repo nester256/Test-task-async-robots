@@ -2,7 +2,7 @@
 max-line-length = 120
 no-accept-encodings = True
 inline-quotes = '
-docstring-quotes = '
+docstring-quotes = "
 multiline-quotes = '
 exclude =
     .git,

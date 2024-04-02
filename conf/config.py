@@ -1,4 +1,4 @@
-''' Defines application settings using Pydantic's BaseSettings. '''
+""" Defines application settings using Pydantic's BaseSettings. """
 
 from pydantic.v1 import BaseSettings
 
@@ -18,6 +18,7 @@ class Settings(BaseSettings):
     BIND_PORT: int
     DB_URL: str
     PAGE_SIZE: int = 2
+    DEFAULT_SCHEMA: str = 'main_db'
 
 
 settings = Settings()

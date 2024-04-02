@@ -1,14 +1,20 @@
+""" Defines the SQLAlchemy model for robot history records. """
 from datetime import datetime
 
 from sqlalchemy import DateTime, Integer
 from sqlalchemy.orm import Mapped, mapped_column
 
-from webapp.model.meta import DEFAULT_SCHEMA, Base
+from conf.config import settings
+from webapp.model.meta import Base
 
 
 class RobotHistory(Base):
+    """
+    SQLAlchemy model for robot history records.
+    """
+
     __tablename__ = 'robot_history'
-    __table_args__ = ({'schema': DEFAULT_SCHEMA},)
+    __table_args__ = ({'schema': settings.DEFAULT_SCHEMA},)
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
 

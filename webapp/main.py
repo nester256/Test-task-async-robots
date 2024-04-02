@@ -1,3 +1,4 @@
+""" This file is intended to initialize fastapi support services. """
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -6,6 +7,11 @@ from webapp.integrations.logger import init_logger
 
 
 def setup_middleware(app: FastAPI) -> None:
+    """
+    This function sets up CORS middleware for the FastAPI application.
+    Parameters:
+        - app: Instance of FastAPI.
+    """
     app.add_middleware(
         CORSMiddleware,
         allow_origins=['*'],
@@ -16,10 +22,20 @@ def setup_middleware(app: FastAPI) -> None:
 
 
 def setup_routers(app: FastAPI) -> None:
+    """
+    This function sets up routers for the FastAPI application.
+    Parameters:
+        - app: Instance of FastAPI.
+    """
     app.include_router(robot_router)
 
 
 def create_app() -> FastAPI:
+    """
+    This function creates and configures a FastAPI application.
+    Returns:
+        Instance of FastAPI.
+    """
     app = FastAPI(docs_url='/swagger')
     setup_middleware(app)
     setup_routers(app)

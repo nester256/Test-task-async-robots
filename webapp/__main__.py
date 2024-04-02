@@ -1,3 +1,4 @@
+""" This file is for running a web application using the Uvicorn server. """
 import uvicorn
 
 from conf.config import settings

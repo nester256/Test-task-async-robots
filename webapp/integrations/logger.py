@@ -1,7 +1,14 @@
+""" Defines a function to initialize and configure loggers for the application. """
 import logging
 
 
 def init_logger(name: str) -> None:
+    """
+    Initializes and configures a logger with specified settings.
+
+    Args:
+    - name (str): Name of the logger.
+    """
     logger = logging.getLogger(name)
     FORMAT = '%(asctime)s - %(name)s:%(lineno)s - %(levelname)s - %(message)s'
     logger.setLevel(logging.DEBUG)
