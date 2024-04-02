@@ -12,10 +12,10 @@ def check_positive_nums(page: int) -> int:
 class StartInfo(BaseModel):
     start_num: int = 0
     model_config = {
-        "json_schema_extra": {
-            "examples": [
+        'json_schema_extra': {
+            'examples': [
                 {
-                    "start_num": -3,
+                    'start_num': -3,
                 }
             ]
         }
@@ -25,10 +25,10 @@ class StartInfo(BaseModel):
 class StopInfo(BaseModel):
     task_id: Annotated[int, AfterValidator(check_positive_nums)]
     model_config = {
-        "json_schema_extra": {
-            "examples": [
+        'json_schema_extra': {
+            'examples': [
                 {
-                    "task_id": 1,
+                    'task_id': 1,
                 }
             ]
         }
@@ -42,10 +42,10 @@ class ResponseDefault(BaseModel):
 class HistoryInfo(BaseModel):
     page: Annotated[int, AfterValidator(check_positive_nums)]
     model_config = {
-        "json_schema_extra": {
-            "examples": [
+        'json_schema_extra': {
+            'examples': [
                 {
-                    "page": 1,
+                    'page': 1,
                 }
             ]
         }
